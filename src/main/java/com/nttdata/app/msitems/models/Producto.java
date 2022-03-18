@@ -7,7 +7,15 @@ public class Producto {
 	private String nombre;
 	private Double precio;
 	private Date creado;
+
+	private Integer port;
 	
+	public Integer getPort() {
+		return port;
+	}
+	public void setPort(Integer port) {
+		this.port = port;
+	}
 	public Long getId() {
 		return id;
 	}
