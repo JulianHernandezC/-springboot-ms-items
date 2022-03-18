@@ -4,11 +4,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Service;
 
 import com.nttdata.app.msitems.clients.ProductoClienteRest;
 import com.nttdata.app.msitems.models.Item;
 import com.nttdata.app.msitems.service.ItemService;
 
+@Service
+@Primary
 public class ItemServiceFeignImpl implements ItemService {
 
 	@Autowired
@@ -16,7 +20,8 @@ public class ItemServiceFeignImpl implements ItemService {
 
 	@Override
 	public List<Item> findAll() {
-		return clienteFeign.listar().stream().map( p -> new Item(p,1)).collect(Collectors.toList());
+		return clienteFeign.listar().stream().map( p -> new Item(p,1)).
+				collect(Collectors.toList());
 	}
 
 	@Override
